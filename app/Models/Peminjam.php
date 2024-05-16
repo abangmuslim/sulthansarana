@@ -7,18 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 
-class peminjam extends Model
+class Peminjam extends Model
 {
-    protected $fillable=['barang_id','pinjam_id','user_id','jumlah','tanggal_pinjam','tanggal_kembalian'];
+    protected $fillable=['jumlah','tanggal_pinjam','tanggal_kembalian','kondisi'];
     use HasFactory;
 
-    public function pinjam():BelongsTo
+    public function peminjaman(): BelongsTo
     {
-        return $this->belongsTo(pinjam::class);
-    }
-
-    public function peminjam():BelongsTo
-    {
-        return $this->belongsTo(Peminjam::class);
+      return $this->belongsTo(pinjam::class);
     }
 }

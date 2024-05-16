@@ -34,8 +34,8 @@ Route::resource('barang',barangController::class);
 Route::resource('pinjam',PinjamController::class)
 ->except('destroy');
 
-Route::resource('peminjam',PeminjamController::class)
-->except('destroy');
+Route::resource('peminjam',PeminjamController::class)->except('destroy');
+
 
 Route::get('login',[LoginController::class,'loginView'])->name('login');
 

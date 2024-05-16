@@ -12,7 +12,7 @@ class peminjamController extends Controller
     //
     public function index()
     {
-        return view('peminjam.tabel', [
+        return view('peminjam.index', [
             "title" => "peminjam",
             "data" => peminjam::all()
         ]);
@@ -20,18 +20,17 @@ class peminjamController extends Controller
 
     public function create():View
     {
-     return view('peminjam.tambah')->with(["title" => "Tambah Data peminjam"]);
+     return view('peminjam.create')->with(["title" => "Tambah Data peminjam"]);
     }
 
 
     public function store(Request $request): RedirectResponse
     {
       $request->validate([
-        "nama"=>"required",
-        "email"=>"required",
-        "hp"=>"required",
-        "alamat"=>"nullable",
-        "jabatan"=>"nullable",
+        "jumlah"=>"required",
+        "tanggal_pinjam"=>"required",
+        "tanggal_kembalian"=>"required",
+        "kondisi"=>"required",
       ]);
 
       peminjam::create($request->all());
@@ -51,11 +50,10 @@ class peminjamController extends Controller
     public function update(Request $request, peminjam $peminjam):RedirectResponse
     {
         $request->validate([
-          "nama"=>"required",
-          "email"=>"required",
-          "hp"=>"required",
-          "alamat"=>"nullable",
-          "jabatan"=>"nullable",
+          "jumlah"=>"required",
+        "tanggal_pinjam"=>"required",
+        "tanggal_kembalian"=>"required",
+        "kondisi"=>"required",
           ]);
 
           $peminjam->update($request->all());

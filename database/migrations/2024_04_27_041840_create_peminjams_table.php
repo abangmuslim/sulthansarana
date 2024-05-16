@@ -13,61 +13,49 @@ return new class extends Migration
     {
         Schema::create('peminjams', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('barangs_id')->unsigned();
-            $table->bigInteger('pinjams_id')->unsigned();
-            $table->bigInteger('users_id')->unsigned();
+            $table->bigInteger('pinjam_id')->unsigned();
+            $table->bigInteger('barang_id')->unsigned();
             $table->integer('jumlah');
             $table->double('tanggal_pinjam');
             $table->double('tanggal_kembalian');
             $table->double('kondisi');
             $table->timestamps();
         });
-
         Schema::table('peminjams', function(Blueprint $table) {
 
-         $table->foreign('barangs_id')->references('id')->on('barangs')
-                ->onUpdate('cascade')->onDelete('cascade');
-               
-           
-     $table->foreign('pinjams_id')->references('id')->on('pinjams')
-                ->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('pinjam_id')->references('id')->on('pinjams')
+                   ->onUpdate('cascade') ->onDelete('cascade');
+                  
+              
+        $table->foreign('barang_id')->references('id')->on('barangs')
+                   ->onUpdate('cascade') ->onDelete('cascade');
+           });
+   
 
-     $table->foreign('users_id')->references('id')->on('users')
-                ->onUpdate('cascade')->onDelete('cascade');
-        });
     }
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::table('peminjams', function(Blueprint $table) {
-            $table->dropForeign('peminjams_barangs_id_foreign');
+        Schema::table('peminjmas', function(Blueprint $table) {
+            $table->dropForeign('peminjmas_pinjam_id_foreign');
         });
    
-        Schema::table('peminjams', function(Blueprint $table) {
-            $table->dropIndex('peminjams_barangs_id_foreign');
+        Schema::table('peminjmas', function(Blueprint $table) {
+            $table->dropIndex('peminjmas_pinjam_id_foreign');
         });
 
-        Schema::table('peminjams', function(Blueprint $table) {
-            $table->dropForeign('peminjams_pinjams_id_foreign');
+        Schema::table('peminjmas', function(Blueprint $table) {
+            $table->dropForeign('peminjmas_barang_id_foreign');
         });
    
-        Schema::table('peminjams', function(Blueprint $table) {
-            $table->dropIndex('peminjams_pinjams_id_foreign');
-        });
-
-        Schema::table('peminjams', function(Blueprint $table) {
-            $table->dropForeign('peminjams_users_id_foreign');
-        });
-   
-        Schema::table('peminjams', function(Blueprint $table) {
-            $table->dropIndex('peminjams_users_id_foreign');
+        Schema::table('peminjmas', function(Blueprint $table) {
+            $table->dropIndex('peminjmas_barang_id_foreign');
         });
        
-        Schema::dropIfExists('peminjams');
-    }
+        Schema::dropIfExists('peminjmas');
 
+    }
 };
