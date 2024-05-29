@@ -24,8 +24,8 @@
             @csrf
             <div class=" card-body">
                 <div class="form-group">
-                    <label for="name">Nama</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder=" Nama Lengkap" required >
+                    <label for="nama_user">Nama</label>
+                    <input type="text" class="form-control" id="nama_user" name="nama_user" placeholder=" Nama Lengkap" required >
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
@@ -80,7 +80,7 @@
                     @foreach($data as $dt)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $dt->name }}</td>
+                        <td>{{ $dt->nama_user }}</td>
                         <td>{{ $dt->email }}</td>
                         <td>{{ $dt->alamat }}</td>
                     </tr>

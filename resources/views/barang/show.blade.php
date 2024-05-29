@@ -36,7 +36,7 @@
                 <tr> 
                     <th>stok barang </th> 
                     <td>:</td> 
-                    <td>{{ $data[0]->stok_barang }}</td> 
+                    <td>{{ $data[0]->stok_barangs }}</td> 
                 </tr> 
                 <tr> 
                     <th>tanggalpembelian</th> 

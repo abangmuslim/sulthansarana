@@ -1,5 +1,5 @@
 @extends('layouts.template')
-@section('judulh1','Admin - pinjam')
+@section('judulh1','Admin - peminjaman')
 
 @section('konten')
 <div class="col-md-6">
@@ -16,34 +16,31 @@
 
     <div class="card card-success">
         <div class="card-header">
-            <h3 class="card-title">Tambah Data pinjam</h3>
+            <h3 class="card-title">Tambah Data peminjaman</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form action="{{ route('pinjam.store') }}" method="POST">
+        <form action="{{ route('peminjaman.store') }}" method="POST">
             @csrf
 
             <div class=" card-body">
+               
                 <div class="form-group">
-                    <label for="nama">Nama pinjam</label>
-                    <input type="text" class="form-control" id="nama" name="nama" placeholder="">
+                    <label for="jumlah">jumlah</label>
+                    <input type="number" class="form-control" id="jumlah" name="jumlah" placeholder="">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email">
+                    <label for="tanggal_pinjam">tanggal pinjam</label>
+                    <input type="date" class="form-control" id="tanggal_pinjam" name="tanggal_pinjam">
+                </div>
+
+                <div class="form-group">
+                    <label for="tanggal_kembalian">tanggal kembalian</label>
+                    <input type="date" class="form-control" id="tanggal_kembalian" name="tanggal_kembalian" placeholder="">
                 </div>
                 <div class="form-group">
-                    <label for="hp">hp</label>
-                    <input type="text" class="form-control" id="hp" name="hp">
-                </div>
-                <div class="form-group">
-                    <label for="alamat">Alamat</label>
-                    <textarea id="alamat" name="alamat" class=" form-control" rows="4"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="jabatan">Jabatan</label>
-                    <textarea id="jabatan" name="jabatan" class=" form-control"
-                        rows="4"></textarea>
+                    <label for="kondisi">kondisi peminjaman</label>
+                    <textarea id="kondisi" name="kondisi" class=" form-control" rows="4"></textarea>
                 </div>
             </div>
             <!-- /.card-body -->

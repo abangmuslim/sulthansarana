@@ -14,38 +14,42 @@
     </div>
     @endif
 
-    <div class="card card-success">
+    <div class="card card-warning">
         <div class="card-header">
-            <h3 class="card-title">Tambah Data peminjam</h3>
+            <h3 class="card-title">Ubah Data peminjam</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form action="{{ route('peminjam.store') }}" method="POST">
+        <form action="{{ route('peminjam.update',$peminjam->id) }}" method="POST">
             @csrf
-
+            @method('PUT')
             <div class=" card-body">
                 <div class="form-group">
-                    <label for="jumlah">jumlah</label>
-                    <input type="number" class="form-control" id="jumlah" name="jumlah" placeholder="">
+                    <label for="nama_peminjam">Nama peminjam</label>
+                    <input type="text" class="form-control" id="nama_peminjam" name="nama_peminjam" placeholder="">
                 </div>
                 <div class="form-group">
-                    <label for="tanggal_pinjam">tanggal pinjam</label>
-                    <input type="datetime" class="form-control" id="tanggal_pinjam" name="tanggal_pinjam">
-                </div>
-
-                <div class="form-group">
-                    <label for="tanggal_kembalian">tanggal kembalian</label>
-                    <input type="date" class="form-control" id="tanggal_kembalian" name="tanggal_kembalian" placeholder="">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email">
                 </div>
                 <div class="form-group">
-                    <label for="kondisi">kondisi peminjam</label>
-                    <textarea id="kondisi" name="kondisi" class=" form-control" rows="4"></textarea>
+                    <label for="phone">phone</label>
+                    <input type="text" class="form-control" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="adress">adress</label>
+                    <textarea id="adress" name="adress" class=" form-control" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="jabatan">Jabatan</label>
+                    <textarea id="jabatan" name="jabatan" class=" form-control"
+                        rows="4"></textarea>
                 </div>
             </div>
             <!-- /.card-body -->
 
             <div class="card-footer">
-                <button type="submit" class="btn btn-success float-right">ubah</button>
+                <button type="submit" class="btn btn-warning float-right">Simpan</button>
             </div>
         </form>
     </div>

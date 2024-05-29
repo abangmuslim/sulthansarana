@@ -1,5 +1,4 @@
-@extends('layouts.template')
-@section('judulh1','Admin - pinjam')
+@section('judulh1','Admin - peminjam')
 
 @section('konten')
 <div class="col-md-6">
@@ -14,44 +13,48 @@
     </div>
     @endif
 
-    <div class="card card-warning">
+    <div class="card card-secondary">
         <div class="card-header">
-            <h3 class="card-title">Ubah Data pinjam</h3>
+            <h3 class="card-title">Data peminjam</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form action="{{ route('pinjam.update',$pinjam->id) }}" method="POST">
+        <form method=" POST">
             @csrf
             @method('PUT')
             <div class=" card-body">
                 <div class="form-group">
-                    <label for="nama">Nama pinjam</label>
-                    <input type="text" class="form-control" id="nama" name="nama" placeholder="">
+                    <label for="nama_peminjam">Nama peminjam</label>
+                    <input type="text" class="form-control" id="nama_peminjam" name="nama_peminjam" placeholder=""
+                        value="{{ $peminjam->nama }}" disabled>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email">
+                    <input type="email" class="form-control" id="email" name="email" value="{{ $peminjam->email }}"
+                        disabled>
                 </div>
                 <div class="form-group">
-                    <label for="hp">hp</label>
-                    <input type="text" class="form-control" id="hp" name="hp">
+                    <label for="phone">phone</label>
+                    <input type="text" class="form-control" id="phone" name="phone" value="{{ $peminjam->phone }}"
+                        disabled>
                 </div>
                 <div class="form-group">
-                    <label for="alamat">Alamat</label>
-                    <textarea id="alamat" name="alamat" class=" form-control" rows="4"></textarea>
+                    <label for="address">address</label>
+                    <textarea id="address" name="address" class=" form-control" rows="4"
+                        disabled>{{ $peminjam->address }}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="jabatan">Jabatan</label>
                     <textarea id="jabatan" name="jabatan" class=" form-control"
-                        rows="4"></textarea>
+                        rows="4">{{ $peminjam->jabatan }}</textarea>
                 </div>
             </div>
+            
             <!-- /.card-body -->
 
             <div class="card-footer">
-                <button type="submit" class="btn btn-warning float-right">Simpan</button>
+
             </div>
         </form>
     </div>
 </div>
-@endsection

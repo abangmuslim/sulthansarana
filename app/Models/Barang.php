@@ -10,12 +10,17 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Barang extends Model
 {
   use HasFactory;
-  protected $fillable = ['nama_barang', 'jenis_barang', 'stok_barang', 'tanggalpembelian', 'lokasi_barang', 'kondisi'];
+  protected $fillable = ['nama_barang', 'jenis_barang', 'stok_barangs', 'tanggalpembelian', 'lokasi_barang', 'kondisi'];
 
   
 
-  public function peminjaman(): HasMany
-  {
-    return $this->hasMany(pinjam::class);
-  }
+  public function peminjam():BelongsTo
+    {
+      return $this->belongsTo(peminjam::class);
+    }
+
+    public function peminjaman():HasMany
+    {
+        return $this->hasMany(peminjam::class);
+    }
 }

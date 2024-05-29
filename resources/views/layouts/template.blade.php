@@ -36,14 +36,14 @@
 
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-user mr-2"></i>
+                        <i class="far fa-user mr-2"></i>{{ Auth::user()->nama_user }} 
                         <span class="badge badge-warning navbar-badge"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span class="dropdown-item dropdown-header">User Menu</span>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <i class="fas fa-user mr-2"></i>
+                            <i class="fas fa-user mr-2"></i>{{ Auth::user()->nama_user }} 
                             <span class="float-right text-muted text-sm"></span>
                         </a>
 
@@ -84,7 +84,7 @@
                         <img src="{{ asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block"> </a>
+                        <a href="#" class="d-block">{{ Auth::user()->nama_user }}  </a>
                     </div>
                 </div>
 
@@ -99,7 +99,7 @@
                             <a href="/" class="nav-link {{ ($title==='welcome')?'active':'' }}">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
-                                    Home
+                                    Dashboard
 
                                 </p>
                             </a>
@@ -138,18 +138,18 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('pinjam.index')}}" class="nav-link {{ ($title==='pinjam')?'active':''}}">
-                                <i class="nav-icon fas fa-users"></i>
-                                <p>
-                                    pinjam
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a href="{{ route('peminjam.index')}}" class="nav-link {{ ($title==='peminjam')?'active':''}}">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     peminjam
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('peminjaman.index')}}" class="nav-link {{ ($title==='peminjaman')?'active':''}}">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    peminjaman
                                 </p>
                             </a>
                         </li>
@@ -162,16 +162,16 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="#" class="nav-link {{ ($title==='Penjualan') ? 'active':'' }}">
                                 <i class="nav-icon fas fa-cash-register"></i>
                                 <p>
                                     Penjualan
                                 </p>
                             </a>
-                        </li>
+                        </li> -->
 
-                        <!-- <li class="nav-item">
+                        <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
@@ -199,7 +199,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li> -->
+                        </li>
 
 
                     </ul>

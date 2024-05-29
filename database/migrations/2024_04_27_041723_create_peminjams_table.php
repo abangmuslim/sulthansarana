@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pinjams', function (Blueprint $table) {
+        Schema::create('peminjams', function (Blueprint $table) {
             $table->id();
             $table->string('email')->unique();
-            $table->string('name');
+            $table->string('nama_peminjam');
             $table->text('address');
             $table->string('phone');
             $table->string('jabatan');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pinjams');
+        Schema::dropIfExists('peminjams');
     }
 };

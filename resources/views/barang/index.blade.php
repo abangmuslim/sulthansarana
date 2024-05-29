@@ -31,7 +31,7 @@
                         <th>No</th>
                         <th>Nama barang</th>
                         <th>jenis barang</th>
-                        <th>Stok</th>
+                        <th>Stok barang</th>
                         <th>tanggal pembelian</th>
                         <th>lokasi barang</th>
                         <th>kondisi barang</th>
@@ -45,7 +45,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $dt->nama_barang }}</td>
                         <td>{{ $dt->jenis_barang }}</td>
-                        <td>{{ $dt->stok_barang }}</td>
+                        <td>{{ $dt->stok_barangs }}</td>
                         <td>{{ $dt->tanggalpembelian }}</td>
                         <td>{{ $dt->lokasi_barang }}</td>
                         <td>{{ $dt->kondisi }}</td>

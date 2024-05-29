@@ -7,37 +7,36 @@ use Illuminate\Http\Request;
 use Illuminate\View\view;
 use Illuminate\Http\RedirectResponse;
 
-class peminjamController extends Controller
+class PeminjamController extends Controller
 {
     //
     public function index()
     {
-        return view('peminjam.index', [
-            "title" => "peminjam",
+        return view('peminjam.tabel', [
+            "title" => "Peminjam",
             "data" => peminjam::all()
         ]);
     }
 
     public function create():View
     {
-     return view('peminjam.create')->with(["title" => "Tambah Data peminjam"]);
+     return view('peminjam.tambah')->with(["title" => "Tambah Data peminjam"]);
     }
-
 
     public function store(Request $request): RedirectResponse
     {
       $request->validate([
-        "jumlah"=>"required",
-        "tanggal_pinjam"=>"required",
-        "tanggal_kembalian"=>"required",
-        "kondisi"=>"required",
+        "nama_peminjam"=>"required",
+        "email"=>"required",
+        "phone"=>"required",
+        "address"=>"nullable",
+        "jabatan"=>"nullable",
       ]);
 
-      peminjam::create($request->all());
+      Peminjam::create($request->all());
       return redirect()->route('peminjam.index')->with('success','Data peminjam
       Berhasil Ditambahkan');
     }
-
 
     public function edit(peminjam $peminjam): View
     {
@@ -46,14 +45,14 @@ class peminjamController extends Controller
     }
 
 
-
     public function update(Request $request, peminjam $peminjam):RedirectResponse
     {
         $request->validate([
-          "jumlah"=>"required",
-        "tanggal_pinjam"=>"required",
-        "tanggal_kembalian"=>"required",
-        "kondisi"=>"required",
+        "nama_peminjam"=>"required",
+        "email"=>"required",
+        "phone"=>"required",
+        "address"=>"nullable",
+        "jabatan"=>"nullable",
           ]);
 
           $peminjam->update($request->all());
@@ -61,9 +60,11 @@ class peminjamController extends Controller
       ->with('update','Data peminjam Berhasil Diubah');
         }
         
-    public function show(Peminjam $peminjam):View
+    public function show(peminjam $peminjam):View
     {
      return view('peminjam.tampil',compact('peminjam'))
      ->with(["title" => "Data peminjam"]);
     }
 };
+
+

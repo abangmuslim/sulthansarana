@@ -7,19 +7,14 @@
 <!-- Toastr -->
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 @endsection
-
 @section('judulh1','Admin - peminjam')
-
 @section('konten')
-
-
-
 <div class="col-md-12">
     <div class="card card-info">
         <div class="card-header">
-            <h2 class="card-title">Data peminjam</h2>
+            <h3 class="card-title">Data peminjam</h3>
             <a type="button" class="btn btn-success float-right" href="{{ route('peminjam.create') }}">
-                <i class=" fas fa-plus"></i> Tambah peminjam
+                <i class=" fas fa-plus"></i> Tambah barang
             </a>
         </div>
         <!-- /.card-header -->
@@ -29,11 +24,13 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>jumlah</th>
-                        <th>tanggal pinjam</th>
-                        <th>tanggal kembalian</th>
-                        <th>kondisi peminjam</th>
-                        <th>Aksi</th>
+                        <th>Nama peminjam</th>
+                        <th>email</th>
+                        <th>phone</th>
+                        <th>address</th>
+                        <th>jabatan</th>
+                        <th>aksi</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -41,21 +38,21 @@
                     @foreach($data as $dt)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $dt->jumlah }}</td>
-                        <td>{{ $dt->tanggal_pinjam }}</td>
-                        <td>{{ $dt->tanggal_kembalian }}</td>
-                        <td>{{ $dt->kondisi }}</td>
+                        <td>{{ $dt->nama_peminjam }}</td>
+                        <td>{{ $dt->email }}</td>
+                        <td>{{ $dt->phone }}</td>
+                        <td>{{ $dt->address }}</td>
+                        <td>{{ $dt->jabatan }}</td>
                         <td>
-                            <div class="btn-group">
-                                <form action="{{ route('peminjam.destroy',$dt->id)}}" method="POST">
+                        <div class="btn-group">
+                                <form action="{{ route('barang.destroy',$dt->id)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">
                                         <i class=" fas fa-trash"></i>
                                     </button>
 
-                                </form>
-
+                            <div class="btn-group">
                                 <a type="button" class="btn btn-warning" href="{{ route('peminjam.edit',$dt->id) }}">
                                     <i class=" fas fa-edit"></i>
                                 </a>
@@ -63,7 +60,6 @@
                                     <i class=" fas fa-eye"></i>
                                 </a>
                             </div>
-
 
                         </td>
                     </tr>
@@ -73,7 +69,6 @@
             </table>
 
         </div>
-
 
     </div>
 </div>
@@ -111,10 +106,11 @@ $(function() {
 
 @if($message = Session::get('success'))
 toastr.success("{{ $message}}");
-@elseif($message = Session::get('updated'))
+@endif
+@if($message = Session::get('updated'))
 toastr.warning("{{ $message}}");
-@elseif($message = Session::get('deleted'))
-toastr.error("{{ $message}}");
 @endif
 </script>
 @endsection
+
+

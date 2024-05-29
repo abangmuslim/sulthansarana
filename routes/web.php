@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\PinjamController;
-use App\Http\Controllers\barangController;
 use App\Http\Controllers\PeminjamController;
+use App\Http\Controllers\barangController;
+use App\Http\Controllers\PeminjamanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,18 +23,17 @@ Route::get('/',function(){
         "title"=>"Dashboard"
     ]);
     
-});
+})->middleware('auth');
 
 
 Route::resource('user',UserController::class)
-->except('destroy','create','show','update','edit');
+->except('destroy','create','show','update','edit')->middleware('auth');
 
 Route::resource('barang',barangController::class);
 
-Route::resource('pinjam',PinjamController::class)
-->except('destroy');
+Route::resource('peminjam',PeminjamController::class);
 
-Route::resource('peminjam',PeminjamController::class)->except('destroy');
+Route::resource('peminjaman',PeminjamanController::class);
 
 
 Route::get('login',[LoginController::class,'loginView'])->name('login');

@@ -29,8 +29,8 @@
                     <input type="text" class="form-control" id="nama_barang" name="nama_barang" placeholder="">
                 </div>
                 <div class="form-group">
-                    <label for="stok_barang">Stok</label>
-                    <input type="number" class="form-control" id="stok_barang" name="stok_barang">
+                    <label for="stok_barangs">Stok barang</label>
+                    <input type="number" class="form-control" id="stok_barangs" name="stok_barangs">
                 </div>
 
                 <div class="form-group">

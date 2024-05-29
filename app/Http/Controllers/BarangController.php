@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Barang;
 use Illuminate\View\View;
-use App\Models\Category;
 
 class BarangController extends Controller
 {
@@ -32,7 +31,7 @@ class BarangController extends Controller
       $request->validate([
         "nama_barang"=>"required",
         "jenis_barang"=>"required",
-        "stok_barang"=>"required",
+        "stok_barangs"=>"required",
         "tanggalpembelian"=>"required",
         "lokasi_barang"=>"required",
         "kondisi"=>"required",
@@ -56,7 +55,7 @@ class BarangController extends Controller
         $request->validate([
         "nama_barang"=>"required",
         "jenis_barang"=>"required",
-        "stok_barang"=>"required",
+        "stok_barangs"=>"required",
         "tanggalpembelian"=>"required",
         "lokasi_barang"=>"required",
         "kondisi"=>"required",
