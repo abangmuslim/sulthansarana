@@ -14,15 +14,20 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="width: 100%; height: 100vh;">
+  <video autoplay loop muted style= "padding: 0; margin: 0; box-sizing: border-box; position: absolute; object-fit: cover; width: 100%; height: 100%;">
+     <source src="{{ asset('dist/img/cinematic.mp4')}}">
+    </video>
 <div class="login-box">
   <!-- /.login-logo -->
-  <div class="card card-outline card-primary">
+  <div class="card card-outline card-primary" style="background:transparent; border: 2px solid rgba(225, 225, 225, .2); backdrop-filter: blur(2px); color:#fff; border-radius: 20px; padding:20px 30px">
     <div class="card-header text-center">
-      <h1 class="h1">Aplikasi<b>POS</b></h1>
+      <h1 class="h1">Aplikasi
+        <b>SARPRAS</b>
+      </h1>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Please Login</p>
+      <p class="login-box-msg">silahkan login terlebih dahulu</p>
       @if(session()->has('loginError'))
       <div class="alert alert-danger alert-dismissible">
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>

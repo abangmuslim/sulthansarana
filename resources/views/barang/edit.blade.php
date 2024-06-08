@@ -43,7 +43,10 @@
                 </div>
                 <div class="form-group">
                     <label for="lokasi_barang">lokasi barang</label>
-                    <input type="text" class="form-control" id="lokasi_barang" name="lokasi_barang" placeholder="">
+                    <select class="custom-select" id="lokasi_barang" name="lokasi_barang">
+                   <option value="lokasi_barang">gudang A</option>
+                   <option value="lokasi_barang">gudang B</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="kondisi">kondisi barang</label>

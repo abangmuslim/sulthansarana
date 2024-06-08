@@ -42,8 +42,13 @@
                     <input type="date" class="form-control" id="tanggalpembelian" name="tanggalpembelian">
                 </div>
                 <div class="form-group">
-                    <label for="lokasi_barang">lokasi barang</label>
-                    <input type="text" class="form-control" id="lokasi_barang" name="lokasi_barang" placeholder="">
+                        <label>lokasi</label>
+                        <select class="form-control" name="lokasi_barang">
+                       <option value="active">Pilih lokasi</option>
+                          <option value="gudang A">gudang A</option>
+                          <option value="gudang B">gudang B</option>
+                          <option value="gudang C">gudang C</option>
+                        </select>
                 </div>
                 <div class="form-group">
                     <label for="kondisi">kondisi barang</label>
